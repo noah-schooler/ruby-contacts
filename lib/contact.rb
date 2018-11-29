@@ -8,9 +8,19 @@ module Storage
       @job = attributes.fetch(:job)
       @company = attributes.fetch(:company)
       @type = attributes.fetch(:type)
+      save
     end
     def name()
       "#{@first} #{@last}"
+    end
+    def save()
+      @@contacts.push(self)
+    end
+    def all()
+      @@contacts
+    end
+    def self.clear()
+      @@contacts = []
     end
   end
 end
