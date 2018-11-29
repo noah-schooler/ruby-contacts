@@ -25,7 +25,7 @@ describe('Storage') do
     describe('#save') do
       it('saves a contact to the contacts array') do
         contact = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})
-        expect(contact.all).to(eq([contact]))
+        expect(Storage::Contact.all).to(eq([contact]))
       end
     end
     describe('.clear') do
@@ -34,13 +34,21 @@ describe('Storage') do
         expect(Storage::Contact.clear).to(eq([]))
       end
     end
-    describe('.get_names') do
-      it('gets an array of names of all contacts') do
+    describe('.get_by_id') do
+      it('finds a given contact based on its ID') do
         contact1 = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})
         contact2 = Storage::Contact.new({:last=> "Lockman", :first=> "Susan", :job=> "Cashier", :company=> "McDonalds", :type=> "Friend"})
         contact3 = Storage::Contact.new({:last=> "Brown", :first=> "James", :job=> "Student", :company=> "Portland State University", :type=> "Brother"})
-        expect(Storage::Contact.get_names).to(eq(["Henry Martin", "Susan Lockman", "James Brown"]))
+        expect(Storage::Contact.get_by_id(1)).to(eq(contact2))
       end
     end
+    # describe('.get_names') do
+    #   it('gets an array of names of all contacts') do
+    #     contact1 = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})
+    #     contact2 = Storage::Contact.new({:last=> "Lockman", :first=> "Susan", :job=> "Cashier", :company=> "McDonalds", :type=> "Friend"})
+    #     contact3 = Storage::Contact.new({:last=> "Brown", :first=> "James", :job=> "Student", :company=> "Portland State University", :type=> "Brother"})
+    #     expect(Storage::Contact.get_names).to(eq(["Henry Martin", "Susan Lockman", "James Brown"]))
+    #   end
+    # end
   end
 end

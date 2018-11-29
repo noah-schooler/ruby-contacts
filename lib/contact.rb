@@ -1,13 +1,17 @@
 module Storage
   class Contact
-    attr_accessor(:last, :first, :job, :company, :type)
+    attr_accessor :last, :first, :job, :company, :type
+    attr_reader :id
     @@contacts = []
+    @@counter = 0
     def initialize(attributes)
       @last = attributes.fetch(:last)
       @first = attributes.fetch(:first)
       @job = attributes.fetch(:job)
       @company = attributes.fetch(:company)
       @type = attributes.fetch(:type)
+      @id = @@counter
+      @@counter += 1
       save
     end
     def name()
@@ -16,18 +20,26 @@ module Storage
     def save()
       @@contacts.push(self)
     end
-    def all()
+    def self.all()
       @@contacts
     end
     def self.clear()
+      @@counter = 0
       @@contacts = []
     end
-    def self.get_names()
-      contacts = []
+    def self.get_by_id(id)
       @@contacts.each do |contact|
-        contacts.push(contact.name)
+        if contact.id == id
+          return contact
+        end
       end
-      contacts
     end
+    # def self.get_names()
+    #   contacts = []
+    #   @@contacts.each do |contact|
+    #     contacts.push(contact.name)
+    #   end
+    #   contacts
+    # end
   end
 end

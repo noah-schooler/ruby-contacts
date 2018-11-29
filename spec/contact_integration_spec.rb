@@ -16,4 +16,8 @@ describe('website', {:type => :feature}) do
     click_button('Add contact')
     expect(page).to have_content('John Doe')
   end
+  it('displays full contact info') do
+    visit('/contact/0')
+    expect(page).to have_content('Name: John Doe')
+  end
 end
