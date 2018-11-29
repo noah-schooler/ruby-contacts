@@ -9,5 +9,8 @@ module Storage
       @company = attributes.fetch(:company)
       @type = attributes.fetch(:type)
     end
+    def name()
+      "#{@first} #{@last}"
+    end
   end
 end

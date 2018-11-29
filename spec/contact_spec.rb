@@ -13,5 +13,11 @@ describe('Storage') do
         expect(contact.type).to(eq("Co-worker"))
       end
     end
+    describe('#name') do
+      it('returns the contacts full name') do
+        contact = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})
+        expect(contact.name).to(eq("Henry Martin"))
+      end
+    end
   end
 end
