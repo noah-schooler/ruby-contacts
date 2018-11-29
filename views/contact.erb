@@ -2,5 +2,21 @@
 <p>Job: <%= @contact.job %></p>
 <p>Company: <%= @contact.company %></p>
 <p>Relation: <%= @contact.type %></p>
+<p>Addresses:</p>
+<% @contact.address_book.each do |address| %>
+  <p><%= address.display %></p>
+<% end %>
+
+<form action="/contact/<%= @contact.id %>" method="post">
+  <label for="street">Street</label>
+  <input type="text" name="street">
+  <label for="city">City</label>
+  <input type="text" name="city">
+  <label for="state">State</label>
+  <input type="text" name="state">
+  <label for="zip">Zip</label>
+  <input type="text" name="zip">
+  <button type="submit" name="button">Add address</button>
+</form>
 
 <a href='/'>Return to contact list</a>

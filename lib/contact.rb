@@ -1,5 +1,3 @@
-require ('address')
-
 module Storage
   class Contact
     attr_accessor :last, :first, :job, :company, :type

@@ -8,6 +8,6 @@ class Address
   end
 
   def display
-    "#{@street}\n#{@city}, #{@state} #{@zip}"
+    "#{@street}<br>#{@city}, #{@state} #{@zip}"
   end
 end

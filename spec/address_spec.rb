@@ -14,7 +14,7 @@ describe('Address') do
   describe('#display') do
     it('formats the address') do
       address = Address.new({:street=> "4156 Default Ave", :city=> "City", :state=> "State", :zip=> "87903"})
-      expect(address.display).to(eq("4156 Default Ave\nCity, State 87903"))
+      expect(address.display).to(eq("4156 Default Ave<br>City, State 87903"))
     end
   end
 end
