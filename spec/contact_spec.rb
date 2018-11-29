@@ -34,5 +34,13 @@ describe('Storage') do
         expect(Storage::Contact.clear).to(eq([]))
       end
     end
+    describe('.get_names') do
+      it('gets an array of names of all contacts') do
+        contact1 = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})
+        contact2 = Storage::Contact.new({:last=> "Lockman", :first=> "Susan", :job=> "Cashier", :company=> "McDonalds", :type=> "Friend"})
+        contact3 = Storage::Contact.new({:last=> "Brown", :first=> "James", :job=> "Student", :company=> "Portland State University", :type=> "Brother"})
+        expect(Storage::Contact.get_names).to(eq(["Henry Martin", "Susan Lockman", "James Brown"]))
+      end
+    end
   end
 end

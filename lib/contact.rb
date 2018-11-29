@@ -22,5 +22,12 @@ module Storage
     def self.clear()
       @@contacts = []
     end
+    def self.get_names()
+      contacts = []
+      @@contacts.each do |contact|
+        contacts.push(contact.name)
+      end
+      contacts
+    end
   end
 end
