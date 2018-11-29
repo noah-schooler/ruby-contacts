@@ -1,3 +1,5 @@
+require ('address')
+
 module Storage
   class Contact
     attr_accessor :last, :first, :job, :company, :type
@@ -29,7 +31,7 @@ module Storage
     end
     def self.get_by_id(id)
       @@contacts.each do |contact|
-        if contact.id == id
+        if contact.id == id.to_i
           return contact
         end
       end

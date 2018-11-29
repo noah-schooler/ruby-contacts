@@ -1,4 +1,5 @@
 require ('contact')
+require ('address')
 require ('rspec')
 
 describe('Storage') do
