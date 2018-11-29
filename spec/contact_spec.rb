@@ -43,6 +43,14 @@ describe('Storage') do
         expect(Storage::Contact.get_by_id(1)).to(eq(contact2))
       end
     end
+    describe('add_address') do
+      it('adds a new address to the contact') do
+        contact = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})
+        address = Address.new({:street=> "4156 Default Ave", :city=> "City", :state=> "State", :zip=> "87903"})
+        contact.add_address(address)
+        expect(contact.address_book).to(eq([address]))
+      end
+    end
     # describe('.get_names') do
     #   it('gets an array of names of all contacts') do
     #     contact1 = Storage::Contact.new({:last=> "Martin", :first=> "Henry", :job=> "Gas station attendant", :company=> "Shell", :type=> "Co-worker"})

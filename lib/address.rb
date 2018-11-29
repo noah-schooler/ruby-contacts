@@ -6,4 +6,8 @@ class Address
     @state = attributes.fetch(:state)
     @zip = attributes.fetch(:zip)
   end
+
+  def display
+    "#{@street}\n#{@city}, #{@state} #{@zip}"
+  end
 end

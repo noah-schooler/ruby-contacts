@@ -3,7 +3,7 @@ require ('address')
 module Storage
   class Contact
     attr_accessor :last, :first, :job, :company, :type
-    attr_reader :id
+    attr_reader :id, :address_book
     @@contacts = []
     @@counter = 0
     def initialize(attributes)
@@ -14,6 +14,7 @@ module Storage
       @type = attributes.fetch(:type)
       @id = @@counter
       @@counter += 1
+      @address_book = []
       save
     end
     def name()
@@ -35,6 +36,9 @@ module Storage
           return contact
         end
       end
+    end
+    def add_address(address)
+      @address_book.push(address)
     end
     # def self.get_names()
     #   contacts = []
